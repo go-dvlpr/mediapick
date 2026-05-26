@@ -47,6 +47,11 @@ export type ResultMetric = {
 
 export const contactEmail = "david@mediapick.io";
 
+export const telegramContacts = [
+  { handle: "@rayb88", url: "https://t.me/rayb88" },
+  { handle: "@AlexiosG1", url: "https://t.me/AlexiosG1" },
+];
+
 export const navItems = [
   { label: "Services", href: "#services" },
   { label: "Industries", href: "#industries" },

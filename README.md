@@ -1,6 +1,6 @@
-# MediaPeak Landing
+# MediaPick Landing
 
-One-page static landing page for MediaPeak, built with Vite, React, and TypeScript.
+One-page static landing page for MediaPick, built with Vite, React, and TypeScript.
 
 ## Run locally
 
@@ -25,8 +25,8 @@ Recommended build settings:
 ## Contact CTA
 
 The page does not use a backend form. Contact calls to action are simple
-`mailto:` links for `david@mediapick.io`, so the site can be deployed to Vercel
-as a static app without serverless setup.
+`mailto:` and Telegram links, so the site can be deployed to Vercel as a static
+app without serverless setup.
 
 ## Content updates
 

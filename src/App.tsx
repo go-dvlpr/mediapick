@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Check, Mail, Menu, X } from "lucide-react";
+import { ArrowRight, Check, Mail, Menu, Send as SendIcon, X } from "lucide-react";
 import {
   contactEmail,
   footerColumns,
@@ -8,21 +8,22 @@ import {
   processSteps,
   resultMetrics,
   services,
+  telegramContacts,
 } from "./content";
 
-const mailSubject = encodeURIComponent("MediaPeak growth inquiry");
+const mailSubject = encodeURIComponent("MediaPick growth inquiry");
 const mailHref = `mailto:${contactEmail}?subject=${mailSubject}`;
 
 function BrandMark() {
   return (
-    <a className="brand" href="#top" aria-label="MediaPeak home">
+    <a className="brand" href="#top" aria-label="MediaPick home">
       <span className="brand__symbol" aria-hidden="true">
         <span />
         <span />
         <span />
       </span>
       <span className="brand__text">
-        Media<span>Peak</span>
+        Media<span>Pick</span>
       </span>
     </a>
   );
@@ -78,7 +79,7 @@ function Hero() {
       <div className="hero__shade" aria-hidden="true" />
       <div className="shell hero__content">
         <div className="hero__copy">
-          <h1 id="hero-title">MediaPeak grows performance campaigns.</h1>
+          <h1 id="hero-title">MediaPick grows performance campaigns.</h1>
           <p>
             Full-funnel media buying, lead generation, and affiliate marketing
             for companies that need qualified demand, lower CAC, and scalable
@@ -108,7 +109,7 @@ function Services() {
             <h2 id="services-title">End-to-end performance marketing built for growth.</h2>
           </div>
           <p>
-            MediaPeak combines acquisition strategy, creative testing, tracking,
+            MediaPick combines acquisition strategy, creative testing, tracking,
             and partner management into one scalable growth engine.
           </p>
         </div>
@@ -153,7 +154,7 @@ function Industries() {
             payout models, sales cycles, and quality thresholds.
           </p>
         </div>
-        <div className="industry-grid" aria-label="Industries MediaPeak serves">
+        <div className="industry-grid" aria-label="Industries MediaPick serves">
           {industries.map((industry) => {
             const Icon = industry.icon;
             return (
@@ -211,7 +212,7 @@ function Results() {
             <h2 id="results-title">Performance teams care about numbers that compound.</h2>
           </div>
           <p>
-            MediaPeak is built for accountable growth: clean reporting, fast
+            MediaPick is built for accountable growth: clean reporting, fast
             feedback loops, and acquisition decisions tied to business outcomes.
           </p>
         </div>
@@ -246,7 +247,7 @@ function Contact() {
           <h2 id="contact-title">Ready to scale smarter?</h2>
           <p>
             Send the brief, target market, current traffic mix, and acquisition
-            goal. MediaPeak will review the opportunity and map the clearest
+            goal. MediaPick will review the opportunity and map the clearest
             path to launch, optimize, or scale.
           </p>
           <div className="contact-points" aria-label="What to include in the email">
@@ -261,24 +262,38 @@ function Contact() {
             </span>
           </div>
         </div>
-        <div className="email-cta-panel" aria-label="Contact MediaPeak by email">
+        <div className="email-cta-panel" aria-label="Contact MediaPick">
           <div className="email-cta-panel__intro">
             <span>Growth inquiry</span>
             <h3>Get a focused media plan.</h3>
             <p>
-              Send your offer, market, and KPI. MediaPeak will review the brief
+              Send your offer, market, and KPI. MediaPick will review the brief
               and reply with the strongest channel path and next steps.
             </p>
           </div>
-          <a className="email-channel" href={mailHref}>
-            <span className="email-channel__icon" aria-hidden="true">
-              <Mail size={20} />
-            </span>
-            <span className="email-channel__copy">
-              <small>Official growth inbox</small>
-              <strong>{contactEmail}</strong>
-            </span>
-          </a>
+          <div className="contact-methods">
+            <a className="contact-method contact-method--email" href={mailHref}>
+              <span className="contact-method__icon" aria-hidden="true">
+                <Mail size={20} />
+              </span>
+              <span className="contact-method__copy">
+                <small>Official growth inbox</small>
+                <strong>{contactEmail}</strong>
+              </span>
+            </a>
+            <div className="telegram-method" aria-label="MediaPick Telegram contacts">
+              <span className="telegram-method__label">
+                <SendIcon size={18} /> Telegram
+              </span>
+              <div className="telegram-links">
+                {telegramContacts.map((contact) => (
+                  <a href={contact.url} key={contact.handle} target="_blank" rel="noreferrer">
+                    {contact.handle}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
           <div className="cta-proof-grid" aria-label="Inquiry focus areas">
             <span>
               <Check size={15} /> Media buying
@@ -318,8 +333,13 @@ function Footer() {
           </div>
         ))}
         <div className="footer__legal">
-          <p>© 2026 MediaPeak. All rights reserved.</p>
+          <p>© 2026 MediaPick. All rights reserved.</p>
           <a href={mailHref}>{contactEmail}</a>
+          {telegramContacts.map((contact) => (
+            <a href={contact.url} key={contact.handle} target="_blank" rel="noreferrer">
+              {contact.handle}
+            </a>
+          ))}
         </div>
       </div>
     </footer>
